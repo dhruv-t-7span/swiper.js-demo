@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+#app {
+  height: 100%;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+}
+
+.autoplay-progress-container {
+  position: absolute;
+  /* left: 5px; */
+  top: 4px;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  /* background: rgba(0, 0, 0, 0.1); */
+  padding: 5px 10px;
+}
+
+.autoplay-progress {
+  /* width: 100px; */
+  height: 2px;
+  background: white;
+  flex: 1 1 0%;
+}
+
+.autoplay-progress .progress-bar {
+  height: 100%;
+  width: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  /* aspect-ratio: 16/9; */
+}
+
+@media screen and (max-width: 640px) {
+  .swiper-button-prev {
+    width: 50% !important;
+    height: 100% !important;
+    top: 23px !important;
+    left: 0 !important;
+  }
+
+  .swiper-button-prev::after {
+    display: none;
+  }
+
+  .swiper-button-next {
+    width: 50% !important;
+    height: 100% !important;
+    top: 23px !important;
+    right: 0 !important;
+  }
+
+  .swiper-button-next::after {
+    display: none;
+  }
+
+}
+
+/* .arrow-slider { */
+@media screen and (min-width: 640px) {
+  .swiper {
+    position: static;
+  }
+
+  .swiper-button-next {
+    @apply absolute top-[40%] hidden md:block -right-14;
+  }
+
+  .swiper-button-prev {
+    @apply absolute top-[40%] hidden md:block -left-14;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply bg-white hover:bg-orange-500 hover:border-orange-500 bg-center size-9 px-5 py-5 bg-no-repeat rounded-full text-orange-500 border border-gray-200;
+  }
+
+  .swiper-button-prev {
+    @apply bg-[url('./assets/arrow-left.svg')] hover:bg-[url('./assets/arrow-left-white.svg')];
+  }
+
+  .swiper-button-next {
+    @apply bg-[url('./assets/arrow-right.svg')] hover:bg-[url('./assets/arrow-right-white.svg')];
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    content: "" !important;
+  }
+
+  .swiper-pagination-bullet {
+    @apply invisible md:visible h-3 w-3 md:h-1.5 md:w-1.5 bg-orange-500;
+  }
+
+  .swiper-pagination {
+    bottom: -28px !important;
+  }
+}
+
+/* } */
+
+/* .swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+} */
